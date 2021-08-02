@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('git repo & clean') {
             steps {
-              // bat "rmdir  /s /q SpringBootCrud"
+               bat "rmdir  /s /q SpringBootCrud"
                 bat "git clone https://github.com/JeeteshRokade/SpringBootCrud.git"
                 bat "mvn clean -f SpringBootCrud"
             }
