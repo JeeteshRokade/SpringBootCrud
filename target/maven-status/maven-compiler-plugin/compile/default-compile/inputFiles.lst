@@ -1,6 +1,6 @@
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\model\Books.java
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\service\BooksService.java
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\util\BooksUtil.java
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\controller\BooksController.java
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\SpringBootCrudOperationApplication.java
-D:\Kinjal\eclipseWorkspace\SpringBootCrud\src\main\java\com\javatpoint\repository\BooksRepository.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\service\BooksService.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\repository\BooksRepository.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\controller\BooksController.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\model\Books.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\SpringBootCrudOperationApplication.java
+D:\SpringBootCrud\src\main\java\com\javatpoint\util\BooksUtil.java
