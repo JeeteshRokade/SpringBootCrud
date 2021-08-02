@@ -2,33 +2,42 @@
 
 pipeline {
     agent any
-//      tools {
-//         maven "3.8.1"
-// 	jdk 'JDK11'
-//     }
+
+    tools {
+        maven "3.8.1"
+		jdk 'JDK11'
+    }
 
     stages {
-        stage('git repo & clean') {
+        stage("Build") {
             steps {
-               bat "rmdir  /s /q TicketBookingServiceJunitTesting"
-                bat "git clone https://github.com/kishancs2020/TicketBookingServiceJunitTesting.git"
-                bat "mvn clean -f TicketBookingServiceJunitTesting"
+                bat "mvn -version"
+                bat "mvn clean install"
             }
         }
-        stage('install') {
+		stage("SonarQube analysis") {
+		steps {
+
+					bat "mvn sonar:sonar -Dsonar.login=b4906dfcdcc4c0826256c34ad1a0829eef088281 -Dsonar.scm.disabled=true"
+				
+			}
+		}
+		stage("Quality gate") {
             steps {
-                bat "mvn install -f TicketBookingServiceJunitTesting"
+				withSonarQubeEnv('sonar') {
+					waitForQualityGate abortPipeline: true
+				}
+            }
+        }	
+    	stage('Junit Test Analysis') { 
+            steps {
+                bat 'mvn test' 
+            }
+        post {
+            always  {
+						junit 'target/surefire-reports/*.xml' 
+					}
             }
         }
-        stage('test') {
-            steps {
-                bat "mvn test -f TicketBookingServiceJunitTesting"
-            }
-        }
-        stage('package') {
-            steps {
-                bat "mvn package -f TicketBookingServiceJunitTesting"
-            }
-        }
-    }
+	}
 }
