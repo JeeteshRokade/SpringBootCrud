@@ -18,13 +18,13 @@ pipeline {
 		stage("SonarQube analysis") {
 		steps {
 
-					bat "mvn sonar:sonar -Dsonar.login=de04e47772c21a29cb161938e88036cdc5d1cdb8 -Dsonar.scm.disabled=true"
+					bat "mvn sonar:sonar -Dsonar.login=b4906dfcdcc4c0826256c34ad1a0829eef088281 -Dsonar.scm.disabled=true"
 				
 			}
 		}
 		stage("Quality gate") {
             steps {
-				withSonarQubeEnv('sonarqube') {
+				withSonarQubeEnv('sonar') {
 					waitForQualityGate abortPipeline: true
 				}
             }
